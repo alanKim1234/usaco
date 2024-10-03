@@ -24,12 +24,20 @@ public class cowntact_tracing_2 {
             in.add(count);
         }
 
+        boolean left_zero = c.charAt(0) == '0';
+        boolean right_zero = c.charAt(n - 1) == '0';
+
+        int max_days = min(in[0], in[n - 1]) - 1;
+
+        max_days = (left_zero) ? min(max_days, (in[0] - 1)/2);
+        max_days = (right_zero) ? min(max_days, (in[n - 1]/2));
+        
+
+
         
 
         
     }
     
-
-
 
 }
