@@ -3,9 +3,9 @@ import java.util.*;
 
 public class speeding_ticket {
     public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new FileReader("test.in"));
+        BufferedReader br = new BufferedReader(new FileReader("speeding.in"));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        //PrintWriter pw = new PrintWriter(new File("speeding.out"));
+        PrintWriter pw = new PrintWriter(new File("speeding.out"));
         
         int m = Integer.parseInt(st.nextToken());
         int n = Integer.parseInt(st.nextToken());
@@ -14,12 +14,12 @@ public class speeding_ticket {
         int[] segments = new int[100];
 
         int start = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int length = Integer.parseInt(st.nextToken());
             int speed = Integer.parseInt(st.nextToken());
-
-            for (int j = start; j < length; j++) {
+            
+            for (int j = start; j < start + length; j++) {
                 r_segments[j] = speed;
             }
 
@@ -27,12 +27,12 @@ public class speeding_ticket {
         }
 
         start = 0;
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int length = Integer.parseInt(st.nextToken());
             int speed = Integer.parseInt(st.nextToken());
 
-            for (int j = start; j < length; j++) {
+            for (int j = start; j < length + start; j++) {
                 segments[j] = speed;
             }
 
@@ -46,9 +46,8 @@ public class speeding_ticket {
             }
         }
 
-        System.out.println(max_diff);
-        //pw.println(max_diff);
-        //pw.close();
+        pw.println(max_diff);
+        pw.close();
         br.close();
 
     }
