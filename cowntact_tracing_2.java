@@ -9,12 +9,12 @@ public class cowntact_tracing_2 {
         int n = Integer.parseInt(st.nextToken());
         String c = br.readLine();
 
-        if (c.indexOf("1") == -1) {
+        if (!c.contains("1")) {
             System.out.println("0");
             System.exit(0);
         }
 
-        ArrayList<Integer> in = new ArrayList<Integer>();
+        ArrayList<Integer> in = new ArrayList<>();
         
         int count = 0;
         for (int i = 0; i < n; i++) {
